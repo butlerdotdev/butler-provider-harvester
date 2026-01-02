@@ -1,0 +1,53 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - butler.butlerlabs.dev
+  resources:
+  - machinerequests
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - butler.butlerlabs.dev
+  resources:
+  - machinerequests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - butler.butlerlabs.dev
+  resources:
+  - machinerequests/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - butler.butlerlabs.dev
+  resources:
+  - providerconfigs
+  verbs:
+  - get
+  - list
+  - watch

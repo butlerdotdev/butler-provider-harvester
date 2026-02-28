@@ -3,7 +3,7 @@ module github.com/butlerdotdev/butler-provider-harvester
 go 1.24.6
 
 require (
-	github.com/butlerdotdev/butler-api v0.1.4-0.20260209222129-c93fbe302388
+	github.com/butlerdotdev/butler-api v0.4.1-0.20260228030305-140667362f7c
 	github.com/onsi/ginkgo/v2 v2.22.0
 	github.com/onsi/gomega v1.36.1
 	k8s.io/api v0.34.1

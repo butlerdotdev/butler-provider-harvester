@@ -37,6 +37,7 @@ import (
 
 	butlerv1alpha1 "github.com/butlerdotdev/butler-api/api/v1alpha1"
 	"github.com/butlerdotdev/butler-provider-harvester/internal/controller"
+	"github.com/butlerdotdev/butler-provider-harvester/internal/imagesync"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -184,6 +185,14 @@ func main() {
 		Recorder: mgr.GetEventRecorderFor("harvester-provider"),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "MachineRequest")
+		os.Exit(1)
+	}
+	if err := (&imagesync.Reconciler{
+		Client:   mgr.GetClient(),
+		Scheme:   mgr.GetScheme(),
+		Recorder: mgr.GetEventRecorderFor("harvester-provider"),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "ImageSync")
 		os.Exit(1)
 	}
 	// +kubebuilder:scaffold:builder

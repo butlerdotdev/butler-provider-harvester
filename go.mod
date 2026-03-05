@@ -3,7 +3,7 @@ module github.com/butlerdotdev/butler-provider-harvester
 go 1.24.6
 
 require (
-	github.com/butlerdotdev/butler-api v0.5.0
+	github.com/butlerdotdev/butler-api v0.6.0
 	github.com/onsi/ginkgo/v2 v2.22.0
 	github.com/onsi/gomega v1.36.1
 	k8s.io/api v0.34.1
@@ -99,5 +99,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.0 // indirect
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
-
-replace github.com/butlerdotdev/butler-api => ../butler-api
